@@ -112,9 +112,28 @@ anova(model5,model2)
 ```
 
 ## Roach
+```{r}
+library(leaps)
+regsubsets.out <-
+  regsubsets(Weight ~.,
+                             data=Roach,
+                             nbest=1,
+                             force.in=NULL,force.out=NULL,
+                             method="exhaustive")
+summary.out<-summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+
+```
+
+```{r}
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend= "bottomleft",main="adjustedR^2")
+```
 
 ### Best Models
+The best model to use here is the L3-W models (model 2).
 
 ### Best Two regressor model
+The best two regressor model to use here is also the L3-W models (model 2).
 
 ## Final Summary Statements
