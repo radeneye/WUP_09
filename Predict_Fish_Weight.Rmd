@@ -76,10 +76,31 @@ As we look at the given data, we can infer that the best model is the two-elemen
 The best two regressor model would also be the H-W models
 
 ## Pike
+```{r}
+library(leaps)
+regsubsets.out <-
+  regsubsets(Weight ~.,
+                             data=Pike,
+                             nbest=1,
+                             force.in=NULL,force.out=NULL,
+                             method="exhaustive")
+summary.out<-summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+
+```
+
+```{r}
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend = "bottom",main="adjustedR^2")
+
+
+```
 
 ### Best Models
+The best model to use here is the 5-element model (L1-L2-L3-H-W models).
 
 ### Best Two regressor model
+The best two regressor model in this case is the L1-L3 models. Since the best model is different from the best two regressor model, we must run an ANOVA test.
 
 ## Roach
 
