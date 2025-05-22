@@ -102,6 +102,15 @@ The best model to use here is the 5-element model (L1-L2-L3-H-W models).
 ### Best Two regressor model
 The best two regressor model in this case is the L1-L3 models. Since the best model is different from the best two regressor model, we must run an ANOVA test.
 
+```{r}
+model5 <- lm(Weight~ . ,data=Pike)
+summary.lm(model5)
+model2=lm(Weight~ .  -Length2-Height-Width, data=Pike)
+model3=lm(Weight~ .  -Length2-Height-Width, data=Pike)
+anova(model5,model2)
+
+```
+
 ## Roach
 
 ### Best Models
