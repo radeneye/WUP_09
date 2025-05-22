@@ -137,3 +137,4 @@ The best model to use here is the L3-W models (model 2).
 The best two regressor model to use here is also the L3-W models (model 2).
 
 ## Final Summary Statements
+For both the perch and roach, the best models and the best two regressor models are the same, so we don't need to compare or run an ANOVA test to find the p-value. Pike had different models for its best mode and best two regressor model, which meant that we had to run an ANOVA test to find the p-value, which is 000000000.8679. 
