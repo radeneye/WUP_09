@@ -50,11 +50,30 @@ Whitefish <- select(Whitefish, -Species)
 
 
 ## Perch
+```{r}
+library(leaps)
+regsubsets.out <-
+  regsubsets(Weight ~.,
+                             data=Perch,
+                             nbest=1,
+                             force.in=NULL,force.out=NULL,
+                             method="exhaustive")
+summary.out<-summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+
+```
+
+```{r}
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottom",main="adjustedR^2")
+
+```
 
 ### Best Models
+As we look at the given data, we can infer that the best model is the two-element model(the H-W models).
 
 ### Best Two regressor model
-
+The best two regressor model would also be the H-W models
 
 ## Pike
 
